@@ -1,0 +1,76 @@
+public class ListaEnlazada
+{
+    private Nodo cabeza;  // Puntero al primer nodo de la lista
+
+    // Constructor
+    public ListaEnlazada()
+    {
+        cabeza = null;  // Lista vacía al inicio
+    }
+
+    // Método para agregar elementos al final de la lista
+    public void Agregar(int valor)
+    {
+        Nodo nuevoNodo = new Nodo(valor);
+        
+        if (cabeza == null)
+        {
+            cabeza = nuevoNodo;  // Si la lista está vacía
+        }
+        else
+        {
+            Nodo actual = cabeza;
+            while (actual.Siguiente != null)
+            {
+                actual = actual.Siguiente;
+            }
+            actual.Siguiente = nuevoNodo;  // Agregar al final
+        }
+    }
+
+    // Método de búsqueda que cuenta ocurrencias
+    public int Buscar(int valorBuscado)
+    {
+        int contador = 0;
+        Nodo actual = cabeza;
+        bool encontrado = false;
+
+        // Recorrer toda la lista
+        while (actual != null)
+        {
+            if (actual.Valor == valorBuscado)
+            {
+                contador++;
+                encontrado = true;
+            }
+            actual = actual.Siguiente;
+        }
+
+        // Mostrar mensaje según el resultado
+        if (!encontrado)
+        {
+            Console.WriteLine($"El valor {valorBuscado} no fue encontrado en la lista.");
+        }
+        else
+        {
+            Console.WriteLine($"El valor {valorBuscado} aparece {contador} vez/veces en la lista.");
+        }
+
+        return contador;
+    }
+
+    // Método para mostrar la lista completa
+    public void Mostrar()
+    {
+        Nodo actual = cabeza;
+        Console.Write("head -> ");
+        
+        while (actual != null)
+        {
+            Console.Write($"[{actual.Valor}] -> ");
+            actual = actual.Siguiente;
+        }
+        
+        Console.WriteLine("null");
+    }
+}
