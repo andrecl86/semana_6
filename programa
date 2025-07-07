@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear una nueva lista enlazada
+        ListaEnlazada lista = new ListaEnlazada();
+        
+        // Agregar valores a la lista
+        lista.Agregar(5);
+        lista.Agregar(10);
+        lista.Agregar(15);
+        lista.Agregar(10);
+        lista.Agregar(20);
+        lista.Agregar(10);
+        lista.Agregar(25);
+        
+        // Mostrar la lista completa
+        Console.WriteLine("Contenido de la lista:");
+        lista.Mostrar();
+        Console.WriteLine();
+        
+        // Realizar búsquedas
+        Console.WriteLine("Buscando el valor 10:");
+        int count10 = lista.Buscar(10);
+        
+        Console.WriteLine("\nBuscando el valor 15:");
+        int count15 = lista.Buscar(15);
+        
+        Console.WriteLine("\nBuscando el valor 100:");
+        int count100 = lista.Buscar(100);
+        
+        // Usar el valor retornado
+        Console.WriteLine($"\nTotal de ocurrencias del número 10: {count10}");
+    }
